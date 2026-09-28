@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="rest countries api with color theme switcher master"
+    />
+    <title>rest countries</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-light">
+    <div class="header">
+      <div
+        class="container py-4 d-flex justify-content-between align-items-center"
+      >
+        <h3>Where in the world</h3>
+        <div class="mode-dark-sun d-flex align-items-center gap-3">
+          <i class="fa-regular fa-moon"></i>
+          <div class="text-mode">Dark Mode</div>
+        </div>
+      </div>
+    </div>
+    <!-- =============== section ============== -->
+    <div class="py-5">
+      <div class="container d-flex align-items-start justify-content-between">
+        <div class="search-country d-flex align-items-center gap-3">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="srch-name"
+            type="text"
+            placeholder="Search for a country..."
+          />
+        </div>
+        <div class="filter-by-region">
+          <div
+            class="head-filter d-flex align-items-center justify-content-between mb-2"
+          >
+            <div class="text-filter">Filter by Region</div>
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+
+          <ul
+            class="bottom-filter position-absolute hide list-unstyled m-0 py-3 px-4"
+          >
+            <li data-contnent=".Africa" class="mb-1">Africa</li>
+            <li data-contnent=".America" class="mb-1">America</li>
+            <li data-contnent=".Asia" class="mb-1">Asia</li>
+            <li data-contnent=".Euro" class="mb-1">Europe</li>
+            <li data-contnent=".Ocean">Oceania</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
