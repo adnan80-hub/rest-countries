@@ -51,6 +51,8 @@ async function countries() {
     country.className = "country-ger  overflow-hidden rounded-3";
     parent.className = "col-lg-3 col-md-4 col-sm-6 mb-3 items item";
 
+    img.alt = "flag";
+    img.ariaLabel = "country";
     // ------- adding css Style
     img.style.cssText = "width: 100%; height: 200px; object-fit: cover;";
     country.style.cssText =
