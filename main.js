@@ -35,13 +35,6 @@ let pages_info_country = document.querySelector(".page-info-country");
 async function countries() {
   let fetchCountry = await fetch("data.json");
   let result = await fetchCountry.json();
-
-  // for (let a = 0; a < result.length; a++) {
-  //   if (result[a].region === "Africa") {
-  //     console.log(result[a].name);
-  //   }
-  // }
-
   for (let i = 0; i < result.length; i++) {
     let parent = document.createElement("div");
     let country = document.createElement("div");
