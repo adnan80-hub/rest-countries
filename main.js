@@ -35,6 +35,7 @@ let pages_info_country = document.querySelector(".page-info-country");
 async function countries() {
   let fetchCountry = await fetch("data.json");
   let result = await fetchCountry.json();
+
   for (let i = 0; i < result.length; i++) {
     let parent = document.createElement("div");
     let country = document.createElement("div");
@@ -350,12 +351,13 @@ async function countries() {
       page_one_paragraph_five.textContent = `Capital: ${result[ind].capital}`;
       page_two_paragraph_one.textContent = `Top Level Damin: ${result[ind].topLevelDomain}`;
       // ======
-      let newOne = result[ind].currencies;
-      [{ code, name, symbol }] = newOne;
-      page_two_paragraph_two.textContent = `Currencies: ${code}`;
-      let newTwo = result[ind].languages;
-      [{ iso639_1, iso639_2, name }] = newTwo;
-      page_two_paragraph_three.textContent = `Languages: ${iso639_1}, ${iso639_2},${name}`;
+      const newOne = result[ind].currencies;
+      let [one, two, three] = newOne;
+      page_two_paragraph_two.textContent = `Currencies: ${one.code}`;
+      const newTwo = result[ind].languages;
+      let [ones, twos, threes] = newTwo;
+      page_two_paragraph_three.textContent = `Languages: ${ones.iso639_1}, ${ones.iso639_2},${ones.name}`;
+
       // ==== convert alpha3 to name
 
       let newThree = result[ind].borders;
