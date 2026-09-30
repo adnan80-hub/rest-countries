@@ -52,6 +52,9 @@ body {
 }
 
 .mode-dark-sun {
+  border: none;
+  outline: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -105,7 +108,7 @@ body {
   font-weight: 600;
 }
 
-.filter-by-region i {
+.filter-by-region .head-filter {
   cursor: pointer;
 }
 
@@ -146,15 +149,8 @@ body {
   display: none;
 }
 
-.paris {
-  background-color: blue;
+.all {
   display: block;
-}
-.rome {
-  background-color: green;
-}
-.london {
-  background-color: red;
 }
 
 .country-ger img {

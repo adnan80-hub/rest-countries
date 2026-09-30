@@ -1,8 +1,9 @@
 let body_page = document.querySelector("body");
+let mode_day = document.querySelector(".mode-dark-sun");
 let icon_theme = document.querySelector("i");
 let text_theme = document.querySelector(".text-mode");
 
-icon_theme.onclick = function () {
+mode_day.onclick = function () {
   if (body_page.classList.contains("theme-light")) {
     body_page.className = "theme-dark";
     icon_theme.className = "fa-regular fa-sun";
@@ -38,7 +39,7 @@ async function countries() {
 
   for (let i = 0; i < result.length; i++) {
     let parent = document.createElement("div");
-    let country = document.createElement("div");
+    let country = document.createElement("button");
     let img = document.createElement("img");
     let txt_country = document.createElement("div");
     let name = document.createElement("div");
@@ -49,15 +50,15 @@ async function countries() {
     txt_country.className = "p-3";
     name.className = "mb-3 fw-bolder name-country";
     img.className = "img-fluid";
+    country.type = "button";
     country.className = "country-ger  overflow-hidden rounded-3";
     parent.className = "col-lg-3 col-md-4 col-sm-6 mb-3 items item";
 
-    img.alt = "flag";
-    img.ariaLabel = "country";
+    img.alt = "";
     // ------- adding css Style
     img.style.cssText = "width: 100%; height: 200px; object-fit: cover;";
     country.style.cssText =
-      "background-color: var(--white-header); color : var(--black-text);";
+      "background-color: var(--white-header); color : var(--black-text); border:none; outline: none; text-align: start; width: 100%";
 
     // ---- adding data
 
@@ -353,21 +354,21 @@ async function countries() {
       // ======
       const newOne = result[ind].currencies;
       let [one, two, three] = newOne;
-      page_two_paragraph_two.textContent = `Currencies: ${one.code}`;
+      page_two_paragraph_two.textContent = `Currencies: ${one?.code ?? "None"}`;
       const newTwo = result[ind].languages;
       let [ones, twos, threes] = newTwo;
       page_two_paragraph_three.textContent = `Languages: ${ones.iso639_1}, ${ones.iso639_2},${ones.name}`;
 
       // ==== convert alpha3 to name
 
-      let newThree = result[ind].borders;
+      let newThree = result[ind].borders ?? [];
 
       borders_cntry.textContent = `Borders : ${newThree
         .map((ele) => {
           let country = result.find((eles) => {
             return eles.alpha3Code === ele;
           });
-          return country.name;
+          return country?.name;
         })
         .join(" , ")}`;
       borders_cntry.style.cssText = " display: flex; gap: 1rem;";
@@ -422,7 +423,7 @@ countries();
 
 // ============ Filter list ============
 
-let icon_filter = document.querySelector(".filter-by-region i");
+let icon_filter = document.querySelector(".filter-by-region .head-filter");
 let bottom_filter = document.querySelector(".bottom-filter");
 
 icon_filter.onclick = function () {
